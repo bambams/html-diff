@@ -29,6 +29,13 @@ default application), resulting in it being launched in Firefox. I can
 then copy/paste the styled patch. To my excitement, it seems to work quite
 well after I worked out a few kinks.
 
+o Why Aren't You Using A CSS Stylesheet?
+
+I would really rather I could, but it seems that unless the styles are
+directly on the element then copying/pasting from Firefox in Windows
+doesn't preserve the styling. So for now at least it seems like the styles
+need to be inline.
+
 o Dependencies
 
 Currently html-diff is intended for use in Windows. The only reason being
