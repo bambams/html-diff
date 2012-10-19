@@ -15,10 +15,10 @@ the coloring to help them understand the patches at a glance.
 
 I typically will copy the patch from cmd.exe (or occasionally gVim) and
 paste it into my IM client. Then I manually would style it by coloring
-deletion red, additions green, and bolding both to make them stand out. It
-can be quite tedious to do line-by-line though, particularly when I don't
-have an acceptable green RGB memorized so I have to feel it out each time
-and each line gets a slightly different color. I finally decided to
+deletions red, additions green, and bolding both to make them stand out.
+It can be quite tedious to do line-by-line though, particularly when I
+don't have an acceptable green RGB memorized so I have to feel it out each
+time and each line gets a slightly different color. I finally decided to
 explore whether or not I could use HTML/CSS styling somehow to automate
 this.
 
@@ -77,7 +77,7 @@ can copy the directory.
 C:\Users\bambams>mklink /d lib\html-diff ..\src\html-diff\lib
 symbolic link created for lib\html-diff <<===>> ..\src\html-diff\lib
 
-That should suffice. You should know be able to execute them:
+That should suffice. You should now be able to execute them:
 
 git-html-diff HEAD~3..HEAD~2
 hg-html-diff -c -3
