@@ -1,0 +1,77 @@
+This is a simple set of Windows-style command shell scripts and a sed
+script to generate and open an HTML document containing a styled diff of a
+given SCM (currently wrappers for git and hg exist).
+
+o What Is It For?
+
+At the time of writing I am using an instant messaging client at j0rb to
+communicate with colleagues and often I like to send short patches to
+colleagues to demonstrate an idea or make sure we're on the same page
+about something. I'm used to colored patches now (i.e., Git, Mercurial,
+and Vim are all capable of "syntax highlighting" patches) and I find it
+can make them much more readable. Also, since most of my colleagues are
+GUI bound and not as comfortable with plain text it doesn't hurt to have
+the coloring to help them understand the patches at a glance.
+
+I typically will copy the patch from cmd.exe (or occasionally gVim) and
+paste it into my IM client. Then I manually would style it by coloring
+deletion red, additions green, and bolding both to make them stand out. It
+can be quite tedious to do line-by-line though, particularly when I don't
+have an acceptable green RGB memorized so I have to feel it out each time
+and each line gets a slightly different color. I finally decided to
+explore whether or not I could use HTML/CSS styling somehow to automate
+this.
+
+html-diff is the result of an hour of hacking at it. What it does is
+basically transform a patch into an HTML document using MSYS sed and then
+"execute" the HTML document (in Windows, this basically opens it with the
+default application), resulting in it being launched in Firefox. I can
+then copy/paste the styled patch. To my excitement, it seems to work quite
+well after I worked out a few kinks.
+
+o How Do I Install It?
+
+That is really up to you, but I'll explain what I have done. For starters,
+I create symbolic links to the executables (i.e., the cmd scripts)
+somewhere in my PATH (for me, I add ~/bin to my PATH, so I just create
+them there). You normally require administrative rights to create symbolic
+links in Windows so you'll need to somehow launch your shell with
+administrative rights (e.g., right-click on the launcher). Copying them
+there will also work (with the obvious limitation that changes to one
+won't affect the other).
+
+C:\Users\bambams>mklink bin\git-html-diff.cmd ..\src\git-html-diff.cmd
+symbolic link created for bin\git-html-diff.cmd <<===>> ..\src\git-html-diff.cmd
+C:\Users\bambams>mklink bin\hg-html-diff.cmd ..\src\hg-html-diff.cmd
+symbolic link created for bin\hg-html-diff.cmd <<===>> ..\src\hg-html-diff.cmd
+C:\Users\bambams>mklink bin\html-diff.cmd ..\src\html-diff.cmd
+symbolic link created for bin\html-diff.cmd <<===>> ..\src\html-diff.cmd
+
+html-diff currently assumes that its lib directory is installed at
+%HOME%/lib/html-diff. You can create another symbolic link for this or you
+can copy the directory.
+
+C:\Users\bambams>mklink /d lib\html-diff ..\src\html-diff\lib
+symbolic link created for lib\html-diff <<===>> ..\src\html-diff\lib
+
+That should suffice. You should know be able to execute them:
+
+git-html-diff HEAD~3..HEAD~2
+hg-html-diff -c -3
+
+Ordinarily Git detects git-* files in the PATH and allows you to use them
+with the git front-end. Currently git isn't detecting it so perhaps .cmd
+isn't a supported file type. I might fix that with a different wrapper at
+a later date (perhaps .bat will work instead).
+
+As for Mercurial, you can install it as an alias in your hgrc file if you
+wish:
+
+[aliases]
+html-diff = !hg-html-diff $@
+
+o Known Issues
+
+Due to limitations of cmd (or my expertise in it) arguments with spaces in
+them won't be supported due to the way arguments are passed along. I may
+look into fixing that at a later date.
