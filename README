@@ -12,6 +12,10 @@ o Why Aren't You Using A CSS Stylesheet?
 
 I would really rather I could, but it seems that unless the styles are directly on the element then copying/pasting from Firefox in Windows doesn't preserve the styling. So for now at least it seems like the styles need to be inline.
 
+o Why Aren't You Using <pre>?
+
+An observer might notice that the code is replacing spaces, tabs, and newlines with equivalent tags and entity references to preserve the space instead of just using CSS or <pre> tags. You might wonder _why_. Well, the main reason is because I was struggling getting the copy/paste to preserve the styling and I naively thought that maybe the <pre> tag was responsible for it and tried without it. When I actually figured out the alleged problem (stylesheets vs. inline styles) I didn't have the time to test the <pre> tags with inline styles. You might wonder why I would go to the trouble of writing this paragraph instead of just fixing the code now. The reason is because I don't have the time/motivation to test the <pre> tags right now and this is just simpler. :P I'll probably switch back to <pre> tags eventually, assuming it works.
+
 o Dependencies
 
 Currently html-diff is intended for use in Windows. The only reason being that I generally only share patches this way in Windows. In *nixes, there are more convenient ways to share the patch that will make them accessible for you to do what you want with them and view them however you want. For at least, that is what I'm going with for now since I'm not currently working in Linux and don't have a use case where I need this functionality there.
