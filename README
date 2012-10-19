@@ -29,6 +29,22 @@ default application), resulting in it being launched in Firefox. I can
 then copy/paste the styled patch. To my excitement, it seems to work quite
 well after I worked out a few kinks.
 
+o Dependencies
+
+Currently html-diff is intended for use in Windows. The only reason being
+that I generally only share patches this way in Windows. In *nixes, there
+are more convenient ways to share the patch that will make them accessible
+for you to do what you want with them and view them however you want. For
+at least, that is what I'm going with for now since I'm not currently
+working in Linux and don't have a use case where I need this functionality
+there.
+
+You will need some compatible version of sed in your PATH. I use MSYS sed.
+
+The rest of the magic^Wevil is handled by cmd.exe for now, which all
+relatively modern Windows OSes should most definitely have (whether you
+like it or not).
+
 o How Do I Install It?
 
 That is really up to you, but I'll explain what I have done. For starters,
