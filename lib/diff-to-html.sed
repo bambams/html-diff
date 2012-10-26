@@ -12,6 +12,9 @@
         can be copied from a browser into Pidgin and retain the\
         formatting. Saves the trouble of manually formatting.</p>\
         <div>
+s/</\&lt;/g
+s/>/\&gt;/g
+s/"/\&quot;/g
 s/ /\&nbsp;/g
 s/^(-.*)/<span style='color: #ff1111; font-weight: bold;'>\1<\/span>/
 s/^(\+.*)/<span style='color: #12ff23; font-weight: bold;'>\1<\/span>/
