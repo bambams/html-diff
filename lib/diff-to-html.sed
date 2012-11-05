@@ -17,7 +17,7 @@ s/>/\&gt;/g
 s/"/\&quot;/g
 s/ /\&nbsp;/g
 s/^(-.*)/<span style='color: #ff1111; font-weight: bold;'>\1<\/span>/
-s/^(\+.*)/<span style='color: #12ff23; font-weight: bold;'>\1<\/span>/
+s/^(\+.*)/<span style='color: #12dd23; font-weight: bold;'>\1<\/span>/
 s/^&nbsp;/ /
 s/	/\&nbsp;\&nbsp;\&nbsp;\&nbsp;/g
 s/$/<br \/>/
